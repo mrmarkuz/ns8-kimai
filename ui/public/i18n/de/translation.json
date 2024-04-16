@@ -36,7 +36,11 @@
         "title": "Status",
         "installation_node": "Knoten der Installation",
         "node": "Knoten",
-        "no_volumes": "keine Volumen"
+        "no_volumes": "keine Volumen",
+        "kimai_webapp": "Kimai Zeiterfassung",
+        "not_configured": "Not configured",
+        "open_webapp": "Kimai öffnen",
+        "configure": "Konfigurieren"
     },
     "about": {
         "title": "Über"

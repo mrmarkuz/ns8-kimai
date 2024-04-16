@@ -4,7 +4,7 @@
 #
 
 [Unit]
-Description=Podman  kimai-app.service
+Description=Podman kimai-app.service
 BindsTo=kimai.service
 After=kimai.service mariadb-app.service
 
@@ -20,8 +20,11 @@ ExecStartPre=-runagent discover-smarthost
 ExecStart=/usr/bin/podman run --conmon-pidfile %t/kimai-app.pid \
     --cidfile %t/kimai-app.ctr-id --cgroups=no-conmon \
     --pod-id-file %t/kimai.pod-id --replace -d --name  kimai-app \
-    --env DATABASE_URL=mysql://kimai:kimai@127.0.0.1:3306/kimai?charset=utf8mb4&serverVersion=8.3.0 \
-    ${KIMAI_IMAGE}
+    --env-file=%S/state/environment \
+    --env DATABASE_URL=mysql://kimai:kimai@127.0.0.1/kimai?charset=utf8mb4&serverVersion=8.3.0 \
+    --env ADMINPASS Nethesis,1234 \
+    --env ADMINMAIL admin@example.com \
+    ${KIMAI2_IMAGE}
 ExecStop=/usr/bin/podman stop --ignore --cidfile %t/kimai-app.ctr-id -t 10
 ExecReload=/usr/bin/podman kill -s HUP kimai-app
 SyslogIdentifier=%u

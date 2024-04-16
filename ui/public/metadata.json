@@ -1,19 +1,20 @@
 {
   "name": "kimai",
   "description": {
-    "en": "My kimai module"
+    "en": "Online time tracking",
+    "de": "Online Zeiterfassung"
   },
-  "categories": [],
+  "categories": ["collaboration"],
   "authors": [
     {
-      "name": "Name Surname",
-      "email": "author@yourmail.org"
+      "name": "Markus Neuberger",
+      "email": "dev@markusneuberger.at"
     }
   ],
   "docs": {
-    "documentation_url": "https://docs.kimai.com/",
-    "bug_url": "https://github.com/NethServer/dev",
-    "code_url": "https://github.com/author/ns8-kimai"
+    "documentation_url": "https://www.kimai.org/documentation/chapter-manual.html",
+    "bug_url": "https://community.nethserver.org",
+    "code_url": "https://github.com/mrmarkuz/ns8-kimai"
   },
-  "source": "ghcr.io/nethserver/kimai"
+  "source": "ghcr.io/mrmarkuz/kimai"
 }
