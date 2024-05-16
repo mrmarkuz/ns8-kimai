@@ -45,7 +45,7 @@ buildah config --entrypoint=/ \
     --label="org.nethserver.authorizations=traefik@node:routeadm" \
     --label="org.nethserver.tcp-ports-demand=1" \
     --label="org.nethserver.rootfull=0" \
-    --label="org.nethserver.images=docker.io/mariadb:10.11.5 docker.io/kimai/kimai2:apache-2.15.0-prod" \
+    --label="org.nethserver.images=docker.io/mariadb:10.11.5 docker.io/kimai/kimai2:apache-2.16.1-prod" \
     "${container}"
 # Commit the image
 buildah commit "${container}" "${repobase}/${reponame}"
