@@ -42,13 +42,29 @@ Move the extracted plugin directory to the Kimai plugins volume without the vers
 
 Set correct owner:
 
-    chown -R 558784:558784 /home/kimai1/.local/share/containers/storage/volumes/kimai-plugins/_data/DeductionTimeBundle/
+- cd into the plugin directory:
+
+      cd /home/kimai1/.local/share/containers/storage/volumes/kimai-plugins/_data
+
+- Set the owner of the plugin dir to the owner of the upper plugins directory:
+
+      chown -R --reference=. DeductionTimeBundle
+
+- Go back to previous directory to make other commands work again
+    
+      cd -
 
 Reload cache to make the new plugin visible:
 
     runagent -m kimai1 podman exec kimai-app /opt/kimai/bin/console kimai:reload --env=prod
 
 The plugin should now be visible in the web UI.
+
+NOTE: The owner IDs may change after updates, restores or reinstalls so please check if the owner is the right one:
+
+      ls -lisa /home/kimai1/.local/share/containers/storage/vo lumes/kimai-plugins
+
+If the owner of the plugin directory has a different owner id than the other files/dirs, please rerun the commands above to set the correct owner.
 
 ### Remove
 
@@ -66,7 +82,7 @@ Reload cache:
 
 To update a plugin, just remove it and reinstall it as explained above.
 
-## Uninstall
+## Uninstall Kimai
 
 To uninstall the instance:
 
