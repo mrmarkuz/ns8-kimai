@@ -42,7 +42,7 @@ Move the extracted plugin directory to the Kimai plugins volume without the vers
 
 Set correct owner:
 
-- cd into the plugin directory:
+- cd into the plugins volume directory (which is mapped to /opt/kimai/var/plugins in the kimai-app container):
 
       cd /home/kimai1/.local/share/containers/storage/volumes/kimai-plugins/_data
 
