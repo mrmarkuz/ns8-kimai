@@ -17,7 +17,7 @@ Install from Software center:
 
 Configure at least the hostname (FQDN) in the app settings.
 
-You can login as user `superadmin` with password `Nethesis,1234`
+You can login as user `admin` with password `Nethesis,1234`
 You may want to change the password and the example mail address in the profile.
 
 ## Plugins
