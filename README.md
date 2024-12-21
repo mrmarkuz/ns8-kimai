@@ -28,6 +28,10 @@ Please also adapt the kimai instance name in the following commands, in my case 
 
 ### Installation
 
+Enter the kimai instance environment, in this example kimai1:
+
+    runagent -m kimai1
+
 Download the plugin, you can get the download Link from the plugins webpage:
 
     curl -L -O https://github.com/Keleo/DeductionTimeBundle/archive/refs/tags/2.0.1.tar.gz
@@ -36,35 +40,44 @@ Extract the plugin:
 
     tar -xvf 2.0.1.tar.gz
 
-Move the extracted plugin directory to the Kimai plugins volume without the version ending ("-2.0.1"):
+Rename the extracted plugin directory to avoid version ending ("-2.0.1"):
 
-    mv DeductionTimeBundle-2.0.1/ /home/kimai1/.local/share/containers/storage/volumes/kimai-plugins/_data/DeductionTimeBundle
+    mv DeductionTimeBundle-2.0.1 DeductionTimeBundle
 
-Set correct owner:
+Copy the plugin to the container:
 
-- cd into the plugins volume directory (which is mapped to /opt/kimai/var/plugins in the kimai-app container):
+    podman cp DeductionTimeBundle kimai-app:/opt/kimai/var/plugins/
 
-      cd /home/kimai1/.local/share/containers/storage/volumes/kimai-plugins/_data
+Set correct owner using chown in the container:
 
-- Set the owner of the plugin dir to the owner of the upper plugins directory:
-
-      chown -R --reference=. DeductionTimeBundle
-
-- Go back to previous directory to make other commands work again
-    
-      cd -
+    podman exec kimai-app chown -R www-data: /opt/kimai/var/plugins/DeductionTimeBundle
 
 Reload cache to make the new plugin visible:
 
-    runagent -m kimai1 podman exec kimai-app /opt/kimai/bin/console kimai:reload --env=prod
+    podman exec kimai-app /opt/kimai/bin/console kimai:reload --env=prod
+
+The result should look like this, the depreciation warnings can be ignored.
+
+```
+ [OK] Cache for the "prod" environment (debug=false) was successfully warmed.   
+ [OK] Kimai config was reloaded
+```
+
+Clean up - delete downloads:
+
+    rm -rf DeductionTimeBundle 2.0.1.tar.gz
+
+Exit the environment:
+    
+    exit
 
 The plugin should now be visible in the web UI.
 
 NOTE: The owner IDs may change after updates, restores or reinstalls so please check if the owner is the right one:
 
-      ls -lisa /home/kimai1/.local/share/containers/storage/vo lumes/kimai-plugins
+      ls -lisa /home/kimai1/.local/share/containers/storage/volumes/kimai-plugins
 
-If the owner of the plugin directory has a different owner id than the other files/dirs, please rerun the commands above to set the correct owner.
+If the owner of the plugin directory has a different owner id than the other files/dirs, please rerun the chown command above to set the correct owner.
 
 ### Remove
 
