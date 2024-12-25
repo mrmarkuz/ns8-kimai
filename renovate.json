@@ -7,17 +7,26 @@
     "**/ui/**",
     "**/.devcontainer/**"
   ],
-  "customManagers": [
+  "regexManagers": [
     {
-      "customType": "regex",
-      "fileMatch": [
-        "build-images.sh"
-      ],
+      "fileMatch": ["build-images.sh"],
       "matchStrings": [
         "docker\\.io/kimai/kimai2:apache-(?<currentValue>[-0-9\\.a-z]+)"
       ],
       "datasourceTemplate": "docker",
       "depNameTemplate": "kimai/kimai2"
+    },
+    {
+      "fileMatch": ["build-images.sh"],
+      "matchStrings": ["docker\\.io/mariadb:(?<currentValue>[^\\s]+)"],
+      "depNameTemplate": "mariadb",
+      "datasourceTemplate": "docker"
+    }
+  ],
+  "packageRules": [
+    {
+      "matchPackageNames": ["mariadb"],
+      "allowedVersions": "<= 10.11"
     }
   ]
 }
