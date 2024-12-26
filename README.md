@@ -75,9 +75,15 @@ The plugin should now be visible in the web UI.
 
 NOTE: The owner IDs may change after updates, restores or reinstalls so please check if the owner is the right one:
 
-      ls -lisa /home/kimai1/.local/share/containers/storage/volumes/kimai-plugins
+    ls -lisa /home/kimai1/.local/share/containers/storage/volumes/kimai-plugins
 
-If the owner of the plugin directory has a different owner id than the other files/dirs, please rerun the chown command above to set the correct owner.
+As root, change to the data dir.
+
+    cd /home/kimai1/.local/share/containers/storage/volumes/kimai-plugins/_data
+
+Change owner to the right one:
+
+    chown -R --reference=. DeductionTimeBundle
 
 ### Remove
 
