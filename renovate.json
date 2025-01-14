@@ -11,7 +11,7 @@
     {
       "fileMatch": ["build-images.sh"],
       "matchStrings": [
-        "docker\\.io/kimai/kimai2:(?<currentValue>[^\\s]+)"
+        "docker\\.io/kimai/kimai2:(?<currentValue>[^\\s]+)\""
       ],
       "datasourceTemplate": "docker",
       "depNameTemplate": "kimai/kimai2"
