@@ -11,7 +11,7 @@
     {
       "fileMatch": ["build-images.sh"],
       "matchStrings": [
-        "docker\\.io/kimai/kimai2:(?<currentValue>[-0-9\\.a-z]+)"
+        "docker\\.io/kimai/kimai2:(?<currentValue>[^\\s]+)"
       ],
       "datasourceTemplate": "docker",
       "depNameTemplate": "kimai/kimai2"
@@ -24,6 +24,10 @@
     }
   ],
   "packageRules": [
+    {
+      "matchPackageNames": ["kimai/kimai2"],
+      "versioning": "regex:^apache-(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)"
+    },
     {
       "matchPackageNames": ["mariadb"],
       "allowedVersions": "<= 10.11"
