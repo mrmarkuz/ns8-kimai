@@ -10,8 +10,8 @@
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": [
-        "build-images.sh"
+      "managerFilePatterns": [
+        "/build-images.sh/"
       ],
       "matchStrings": [
         "docker\\.io/kimai/kimai2:(?<currentValue>[^\\s]+)\""
@@ -21,8 +21,8 @@
     },
     {
       "customType": "regex",
-      "fileMatch": [
-        "build-images.sh"
+      "managerFilePatterns": [
+        "/build-images.sh/"
       ],
       "matchStrings": [
         "docker\\.io/mariadb:(?<currentValue>[^\\s]+)"
