@@ -23,7 +23,7 @@ ExecStart=/usr/bin/podman run --conmon-pidfile %t/kimai-app.pid \
     --env-file=%S/state/environment \
     --volume kimai-app:/opt/kimai/var/data:Z \
     --volume kimai-plugins:/opt/kimai/var/plugins:z \
-    --env DATABASE_URL=mysql://kimai:kimai@127.0.0.1/kimai?charset=utf8mb4&serverVersion=8.3.0 \
+    --env DATABASE_URL=mysql://kimai:kimai@127.0.0.1/kimai?charset=utf8mb4 \
     --env ADMINPASS=Nethesis,1234 \
     --env ADMINMAIL=admin@example.com \
     ${KIMAI2_IMAGE}
