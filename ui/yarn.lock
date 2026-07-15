@@ -1029,7 +1029,7 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@nethserver/ns8-ui-lib@^1.2.2":
+"@nethserver/ns8-ui-lib@^1.12.4":
   version "1.12.4"
   resolved "https://registry.yarnpkg.com/@nethserver/ns8-ui-lib/-/ns8-ui-lib-1.12.4.tgz#8342890fdb6e3e589fb62297b0ffda939fc3ade9"
   integrity sha512-lGlndnoKh/DHf/iSQgwiusRrnRCJC6H40MKTRzr9YRaX35zignTpKE55FfgBp9uhjtTbOMZlyYdq1rXqdw1hfA==
