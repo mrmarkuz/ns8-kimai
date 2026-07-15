@@ -11,9 +11,9 @@ After=kimai.service mariadb-app.service
 
 [Service]
 Environment=PODMAN_SYSTEMD_UNIT=%n
-EnvironmentFile=%S/state/environment
-EnvironmentFile=-%S/state/smarthost.env
-WorkingDirectory=%S/state
+EnvironmentFile=%E/state/environment
+EnvironmentFile=-%E/state/smarthost.env
+WorkingDirectory=%E/state
 Restart=always
 TimeoutStopSec=70
 ExecStartPre=/bin/rm -f %t/kimai-app.pid %t/kimai-app.ctr-id
@@ -21,7 +21,7 @@ ExecStartPre=-runagent discover-smarthost
 ExecStart=/usr/bin/podman run --conmon-pidfile %t/kimai-app.pid \
     --cidfile %t/kimai-app.ctr-id --cgroups=no-conmon \
     --pod-id-file %t/kimai.pod-id --replace -d --name  kimai-app \
-    --env-file=%S/state/environment \
+    --env-file=%E/state/environment \
     --volume kimai-app:/opt/kimai/var/data:Z \
     --volume kimai-plugins:/opt/kimai/var/plugins:z \
     --env DATABASE_URL=mysql://kimai:kimai@127.0.0.1/kimai?charset=utf8mb4 \
