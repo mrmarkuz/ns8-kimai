@@ -6,12 +6,6 @@
 	"packageRules": [
         {
             "matchPackageNames": [
-                "kimai/kimai2"
-            ],
-            "versioning": "regex:^apache-(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)"
-        },
-        {
-            "matchPackageNames": [
                 "mariadb"
             ],
             "allowedVersions": "<= 10.11"

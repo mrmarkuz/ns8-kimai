@@ -1,8 +1,11 @@
 {
   "name": "kimai",
   "description": {
-    "en": "Online time tracking",
-    "de": "Online Zeiterfassung"
+    "en": "Kimai is a free, open-source time-tracking and invoicing application designed for freelancers, agencies, and businesses",
+    "de": "Kimai ist eine kostenlose Open-Source-Anwendung zur Zeiterfassung und Rechnungsstellung, die für Freiberufler, Agenturen und Unternehmen konzipiert wurde",
+    "fr": "Kimai est une application gratuite et open source de suivi du temps et de facturation, conçue pour les freelances, les agences et les entreprises",
+    "it": "Kimai è un'applicazione gratuita e open source per il monitoraggio del tempo e la fatturazione, pensata per liberi professionisti, agenzie e aziende",
+    "es": "Kimai es una aplicación gratuita de código abierto para el seguimiento del tiempo y la facturación, diseñada para trabajadores autónomos, agencias y empresas"
   },
   "categories": ["collaboration"],
   "authors": [
